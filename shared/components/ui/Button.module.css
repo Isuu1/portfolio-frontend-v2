@@ -1,0 +1,30 @@
+.button {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border: 0;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.primary {
+  background: #811ae5;
+  color: #fff;
+}
+
+.primary:hover {
+  background: transparent;
+  border: 2px solid #811ae5;
+}
+
+.secondary {
+  background: transparent;
+  color: #fb8500;
+  border: 2px solid #fb8500;
+}
+
+.secondary:hover {
+  background: #fb8500;
+  color: #fff;
+}

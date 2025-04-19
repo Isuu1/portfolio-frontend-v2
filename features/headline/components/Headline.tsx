@@ -2,7 +2,15 @@ import React from "react";
 
 //Styles
 import styles from "@/features/headline/components/Headline.module.css";
+
+//Components
 import TypingAnimation from "./TypingAnimation";
+
+//Icons
+import { TbArrowBigDownLineFilled } from "react-icons/tb";
+import { FaGithub } from "react-icons/fa";
+
+import Button from "@/shared/components/ui/Button";
 
 const Headline = () => {
   return (
@@ -11,16 +19,14 @@ const Headline = () => {
       <TypingAnimation />
       <div className="home-container__headline__buttons">
         <a href="#projects-container">
-          <button className="home-container__headline__buttons__my-work">
-            My work
-            {/* <TbArrowBigDownLineFilled className="icon" /> */}
-          </button>
+          <Button
+            variant="secondary"
+            text="My work"
+            icon={<TbArrowBigDownLineFilled />}
+          />
         </a>
         <a href="https://github.com/Isuu1">
-          <button className="home-container__headline__buttons__github">
-            GitHub
-            {/* <FaGithub className="icon" /> */}
-          </button>
+          <Button variant="primary" text="GitHub" icon={<FaGithub />} />
         </a>
       </div>
     </div>
