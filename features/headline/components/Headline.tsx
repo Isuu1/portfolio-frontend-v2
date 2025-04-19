@@ -7,7 +7,7 @@ import TypingAnimation from "./TypingAnimation";
 const Headline = () => {
   return (
     <div className={styles.headlineContainer}>
-      <h2>Hello there, my name is Jakub. I`m a</h2>
+      <h1>Hello there, my name is Jakub. I`m a</h1>
       <TypingAnimation />
       <div className="home-container__headline__buttons">
         <a href="#projects-container">
