@@ -7,23 +7,8 @@ import TypingAnimation from "./TypingAnimation";
 const Headline = () => {
   return (
     <div className={styles.headlineContainer}>
-      <h2 className="home-container__headline__text">
-        Hello there, my name is Jakub. I`m a <br></br> <TypingAnimation />
-        {/* <TypeAnimation
-            sequence={[
-              "front-end developer.",
-              1500,
-              "web designer.",
-              1500,
-              "tech enthusiast.",
-              1500,
-            ]}
-            speed={40}
-            repeat={Infinity}
-            style={{ color: "#811ae5", fontWeight: "bold" }}
-          /> */}
-      </h2>
-
+      <h2>Hello there, my name is Jakub. I`m a</h2>
+      <TypingAnimation />
       <div className="home-container__headline__buttons">
         <a href="#projects-container">
           <button className="home-container__headline__buttons__my-work">
