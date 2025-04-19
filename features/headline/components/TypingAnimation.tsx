@@ -16,7 +16,7 @@ const TypingAnimation = () => {
       ]}
       speed={40}
       repeat={Infinity}
-      style={{ color: "#811ae5", fontWeight: "bold" }}
+      style={{ color: "#811ae5", fontWeight: "bold", fontSize: "2.3rem" }}
     />
   );
 };
