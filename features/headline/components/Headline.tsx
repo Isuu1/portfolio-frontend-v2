@@ -11,23 +11,24 @@ import { TbArrowBigDownLineFilled } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
 
 import Button from "@/shared/components/ui/Button";
+import Link from "next/link";
 
 const Headline = () => {
   return (
     <div className={styles.headlineContainer}>
       <h1>Hello there, my name is Jakub. I`m a</h1>
       <TypingAnimation />
-      <div className="home-container__headline__buttons">
-        <a href="#projects-container">
+      <div className={styles.buttons}>
+        <Link href="#projects-container">
           <Button
             variant="secondary"
             text="My work"
             icon={<TbArrowBigDownLineFilled />}
           />
-        </a>
-        <a href="https://github.com/Isuu1">
+        </Link>
+        <Link href="https://github.com/Isuu1">
           <Button variant="primary" text="GitHub" icon={<FaGithub />} />
-        </a>
+        </Link>
       </div>
     </div>
   );

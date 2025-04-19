@@ -1,11 +1,17 @@
 .button {
+  cursor: pointer;
   display: flex;
+  align-items: center;
   gap: 0.6rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.7rem;
   font-size: 1.2rem;
   border: 0;
   border: 2px solid transparent;
   transition: all 0.3s ease;
+}
+
+.button svg {
+  display: block;
 }
 
 .primary {
