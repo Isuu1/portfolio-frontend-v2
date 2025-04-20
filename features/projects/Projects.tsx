@@ -8,6 +8,7 @@ import styles from "@/features/projects/Projects.module.css";
 //Animations
 import { motion } from "motion/react";
 import CategoryMenu from "./CategoryMenu";
+import SectionHeadline from "@/shared/components/SectionHeadline";
 
 const Projects = () => {
   return (
@@ -21,14 +22,7 @@ const Projects = () => {
     >
       <div className="shape-blob one"></div>
       <div className="shape-blob two"></div>
-      <motion.div
-        className={styles.headline}
-        whileInView={"visible"}
-        initial="hidden"
-        // variants={headlineSpringAnimation}
-      >
-        My work
-      </motion.div>
+      <SectionHeadline sectionName="My work" />
       <CategoryMenu />
     </motion.div>
   );
