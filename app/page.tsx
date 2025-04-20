@@ -1,3 +1,4 @@
+import About from "@/features/about/components/About";
 import Headline from "@/features/headline/components/Headline";
 import Projects from "@/features/projects/components/Projects";
 import { getProjects } from "@/sanity/lib/queries/getProjects";
@@ -10,6 +11,7 @@ export default async function Home() {
     <div className="page">
       <Headline />
       <Projects projects={projects} />
+      <About />
     </div>
   );
 }
