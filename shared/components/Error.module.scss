@@ -1,0 +1,14 @@
+.errorContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: center;
+  font-size: 1.3rem;
+  .icon {
+    color: #fb8500;
+  }
+  .icon svg {
+    display: block;
+  }
+}
