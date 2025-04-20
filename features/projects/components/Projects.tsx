@@ -9,8 +9,14 @@ import styles from "@/features/projects/components/Projects.module.css";
 import { motion } from "motion/react";
 import CategoryMenu from "./CategoryMenu";
 import SectionHeadline from "@/shared/components/SectionHeadline";
+import { Project } from "@/shared/types/project";
 
-const Projects = () => {
+interface ProjectsProps {
+  projects: Project[];
+}
+
+const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  console.log("projects", projects);
   return (
     <motion.div
       className={styles.projectsContainer}
