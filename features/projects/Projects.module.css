@@ -1,3 +1,7 @@
 .projectsContainer {
+  z-index: 4;
+  position: relative;
+  --background: #1a0044;
   margin-top: 100vh;
+  background: var(--background);
 }

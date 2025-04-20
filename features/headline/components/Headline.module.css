@@ -1,4 +1,5 @@
 .headlineContainer {
+  z-index: 3;
   position: fixed;
   height: 100%;
   top: 0;
