@@ -36,16 +36,19 @@ const categoryMenuItemVariants = {
   },
 };
 
-const CategoryMenu = () => {
+interface CategoryMenuProps {
+  activeCategory: string;
+  changeCategory: (category: string) => void;
+}
+
+const CategoryMenu: React.FC<CategoryMenuProps> = ({
+  activeCategory,
+  changeCategory,
+}) => {
   const [categoryList, setCategoryList] = useState<Category[]>([]);
-  const [category, setCategory] = useState<string>("All");
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
-  function handleCatChange(cat: string) {
-    setCategory(cat);
-  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -92,8 +95,8 @@ const CategoryMenu = () => {
       {categoryList.map((cat) => (
         <motion.li
           key={cat._id}
-          onClick={() => handleCatChange(cat.title)}
-          className={`${styles.item} ${category === cat.title && styles.active}`}
+          onClick={() => changeCategory(cat.title)}
+          className={`${styles.item} ${activeCategory === cat.title && styles.active}`}
           variants={categoryMenuItemVariants}
         >
           {cat.title}
