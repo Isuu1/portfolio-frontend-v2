@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 //Animations
 import { motion } from "motion/react";
 
 //Styles
-import styles from "@/features/projects/CategoryMenu.module.css";
+import styles from "@/features/projects/components/CategoryMenu.module.css";
+import { getCategories } from "@/sanity/lib/queries/getCategories";
+import { Category } from "@/shared/types/category";
 
 export const categoryMenuVariants = {
   visible: {
@@ -33,10 +35,47 @@ const categoryMenuItemVariants = {
 };
 
 const CategoryMenu = () => {
+  const [categoryList, setCategoryList] = useState<Category[]>([]);
   const [category, setCategory] = useState<string>("All");
+
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  // const [error, setError] = useState<string | null>(null);
 
   function handleCatChange(cat: string) {
     setCategory(cat);
+  }
+
+  console.log("categoryList", categoryList);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const fetchCategories = async () => {
+      try {
+        const res = await getCategories();
+        setCategoryList(res);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+        //setError("Failed to load categories");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchCategories();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <motion.ul
+        className={styles.categoryMenu}
+        whileInView="visible"
+        initial="hidden"
+        variants={categoryMenuVariants}
+      >
+        <motion.li className={styles.item} variants={categoryMenuItemVariants}>
+          placeholder
+        </motion.li>
+      </motion.ul>
+    );
   }
 
   return (
@@ -46,34 +85,16 @@ const CategoryMenu = () => {
       initial="hidden"
       variants={categoryMenuVariants}
     >
-      <motion.li
-        onClick={() => handleCatChange("All")}
-        className={`${styles.item} ${category === "All" && styles.active}`}
-        variants={categoryMenuItemVariants}
-      >
-        All
-      </motion.li>
-      <motion.li
-        onClick={() => handleCatChange("Web")}
-        className={`${styles.item} ${category === "Web" && styles.active}`}
-        variants={categoryMenuItemVariants}
-      >
-        Web
-      </motion.li>
-      <motion.li
-        onClick={() => handleCatChange("Ecommerce")}
-        className={`${styles.item} ${category === "Ecommerce" && styles.active}`}
-        variants={categoryMenuItemVariants}
-      >
-        Ecommerce
-      </motion.li>
-      <motion.li
-        onClick={() => handleCatChange("Mobile")}
-        className={`${styles.item} ${category === "Mobile" && styles.active}`}
-        variants={categoryMenuItemVariants}
-      >
-        Mobile
-      </motion.li>
+      {categoryList.map((cat) => (
+        <motion.li
+          key={cat._id}
+          onClick={() => handleCatChange(cat.title)}
+          className={`${styles.item} ${category === cat.title && styles.active}`}
+          variants={categoryMenuItemVariants}
+        >
+          {cat.title}
+        </motion.li>
+      ))}
     </motion.ul>
   );
 };

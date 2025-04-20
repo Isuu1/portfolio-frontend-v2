@@ -3,7 +3,7 @@
 import React from "react";
 
 //Styles
-import styles from "@/features/projects/Projects.module.css";
+import styles from "@/features/projects/components/Projects.module.css";
 
 //Animations
 import { motion } from "motion/react";
