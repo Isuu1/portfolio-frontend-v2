@@ -4,8 +4,6 @@ import React, { useState } from "react";
 
 //Styles
 import styles from "@/features/projects/components/Projects.module.scss";
-//Animations
-import { motion } from "motion/react";
 //Components
 import CategoryMenu from "./CategoryMenu";
 import SectionHeadline from "@/shared/components/SectionHeadline";
@@ -16,15 +14,6 @@ import { Project } from "@/shared/types/project";
 interface ProjectsProps {
   projects: Project[];
 }
-
-export const projectsContainerVariants = {
-  visible: {
-    transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
-    },
-  },
-};
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -43,13 +32,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   });
 
   return (
-    <motion.div
-      className={styles.projectsContainer}
-      id="projects-container"
-      variants={projectsContainerVariants}
-      // whileInView="visible"
-      // initial="hidden"
-    >
+    <div className={styles.projectsContainer} id="projects-container">
       {/* <div className="shape-blob one"></div>
       <div className="shape-blob two"></div> */}
       <SectionHeadline sectionName="My work" />
@@ -62,7 +45,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           <ProjectCard key={project._id} project={project} />
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
