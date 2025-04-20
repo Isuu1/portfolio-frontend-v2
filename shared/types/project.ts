@@ -14,5 +14,16 @@ export type Project = {
       url: string;
     };
   };
+  images: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+  }[];
   short_description: PortableTextBlock[];
+  description: PortableTextBlock[];
+  projectUrl: string;
+  repoUrl: string;
+  technologies: string[];
+  publishedAt: string;
 };

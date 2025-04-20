@@ -22,7 +22,17 @@ thumbnail {
     url
   }
 },
-short_description,
+images[]{
+  asset->{
+    _id,
+    url
+  }
+},
+short_description[],
+description[],
+projectUrl,
+repoUrl,
+technologies[],
 images[]{
   asset->{
     _id,
