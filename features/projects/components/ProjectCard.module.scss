@@ -1,0 +1,28 @@
+.projectCard {
+  position: relative;
+  .image {
+    position: relative !important;
+  }
+  .projectDetails {
+    background: #1a0044d8;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    .name {
+      text-decoration: underline #fb8500;
+      text-underline-offset: 14px;
+      text-decoration-thickness: 5px;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}

@@ -5,7 +5,7 @@ import styles from "@/shared/components/ui/Button.module.css";
 
 interface ButtonProps {
   text: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   variant?: "primary" | "secondary";
 }
 

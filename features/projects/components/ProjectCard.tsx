@@ -1,0 +1,77 @@
+"use client";
+
+import React, { useState } from "react";
+import { PortableText } from "next-sanity";
+import Image from "next/image";
+
+//Types
+import { Project } from "@/shared/types/project";
+//Styles
+import styles from "@/features/projects/components/ProjectCard.module.scss";
+//Utils
+import { urlFor } from "@/sanity/lib/image";
+//Animations
+import { AnimatePresence, motion } from "motion/react";
+import Button from "@/shared/components/ui/Button";
+
+interface ProjectCardProps {
+  project: Project;
+}
+
+const projectDetailsVariants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      ease: "easeInOut",
+    },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.2,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const [showDetails, setShowDetails] = useState(false);
+
+  return (
+    <div
+      className={styles.projectCard}
+      onMouseEnter={() => setShowDetails(true)}
+      onMouseLeave={() => setShowDetails(false)}
+    >
+      <AnimatePresence>
+        {showDetails && (
+          <motion.div
+            className={styles.projectDetails}
+            variants={projectDetailsVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
+            <h2 className={styles.name}>{project.name}</h2>
+            <PortableText value={project.short_description} />
+            <div className={styles.buttons}>
+              <Button variant="secondary" text="View more" />
+              <Button variant="primary" text="Live site" />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <Image
+        src={urlFor(project.thumbnail.asset.url).url()}
+        alt={project.name}
+        fill
+        className={styles.image}
+      />
+    </div>
+  );
+};
+
+export default ProjectCard;
