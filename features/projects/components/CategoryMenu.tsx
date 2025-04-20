@@ -4,11 +4,14 @@ import React, { useEffect, useState } from "react";
 
 //Animations
 import { motion } from "motion/react";
-
 //Styles
 import styles from "@/features/projects/components/CategoryMenu.module.css";
+//Utils
 import { getCategories } from "@/sanity/lib/queries/getCategories";
+//Types
 import { Category } from "@/shared/types/category";
+//Components
+import Error from "@/shared/components/Error";
 
 export const categoryMenuVariants = {
   visible: {
@@ -17,7 +20,6 @@ export const categoryMenuVariants = {
       staggerChildren: 0.1,
     },
   },
-  hidden: {},
 };
 
 const categoryMenuItemVariants = {
@@ -39,13 +41,11 @@ const CategoryMenu = () => {
   const [category, setCategory] = useState<string>("All");
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  // const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   function handleCatChange(cat: string) {
     setCategory(cat);
   }
-
-  console.log("categoryList", categoryList);
 
   useEffect(() => {
     setIsLoading(true);
@@ -54,14 +54,18 @@ const CategoryMenu = () => {
         const res = await getCategories();
         setCategoryList(res);
       } catch (error) {
-        console.error("Error fetching categories:", error);
-        //setError("Failed to load categories");
+        console.error(error);
+        setError(`Failed to load categories`);
       } finally {
         setIsLoading(false);
       }
     };
     fetchCategories();
   }, []);
+
+  if (error) {
+    return <Error errorMessage={error} />;
+  }
 
   if (isLoading) {
     return (

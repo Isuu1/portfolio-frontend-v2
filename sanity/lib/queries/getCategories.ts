@@ -13,9 +13,11 @@ export async function getCategories(): Promise<Category[]> {
   `;
   try {
     const categories = await client.fetch<Category[]>(query);
+    if (!categories || categories.length === 0) {
+      throw new Error("Failed to fetch categories");
+    }
     return categories;
   } catch (error) {
-    console.error("Error fetching all categories:", error);
-    return [];
+    throw new Error(`Failed to fetch categories: ${error}`);
   }
 }
