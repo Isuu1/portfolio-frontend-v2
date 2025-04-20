@@ -10,6 +10,7 @@ import SectionHeadline from "@/shared/components/SectionHeadline";
 import ProjectCard from "./ProjectCard";
 //Types
 import { Project } from "@/shared/types/project";
+//Animations
 import { AnimatePresence } from "motion/react";
 
 interface ProjectsProps {
@@ -34,8 +35,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
   return (
     <div className={styles.projectsContainer} id="projects-container">
-      {/* <div className="shape-blob one"></div>
-      <div className="shape-blob two"></div> */}
+      <div className={`${styles.blobShape} ${styles.blobOne}`}></div>
+      <div className={`${styles.blobShape} ${styles.blobTwo}`}></div>
       <SectionHeadline sectionName="My work" />
       <CategoryMenu
         activeCategory={activeCategory}
