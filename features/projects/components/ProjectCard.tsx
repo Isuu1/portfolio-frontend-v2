@@ -72,6 +72,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       whileInView="visible"
       initial="hidden"
       exit="exit"
+      layout
     >
       <AnimatePresence>
         {showDetails && (

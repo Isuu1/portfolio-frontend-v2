@@ -10,6 +10,7 @@ import SectionHeadline from "@/shared/components/SectionHeadline";
 import ProjectCard from "./ProjectCard";
 //Types
 import { Project } from "@/shared/types/project";
+import { AnimatePresence } from "motion/react";
 
 interface ProjectsProps {
   projects: Project[];
@@ -40,10 +41,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         activeCategory={activeCategory}
         changeCategory={handleCategoryChange}
       />
+
       <div className={styles.projectsList}>
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project._id} project={project} />
-        ))}
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project._id} project={project} />
+          ))}
+        </AnimatePresence>
       </div>
     </div>
   );
