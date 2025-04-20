@@ -1,0 +1,22 @@
+.categoryMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  list-style: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  .item {
+    cursor: pointer;
+    background: transparent;
+    padding: 1rem 1.7rem;
+    transition: background 0.3s ease;
+  }
+  .item:hover {
+    background: #fb8500;
+  }
+  .active {
+    background: #fb8500;
+  }
+}

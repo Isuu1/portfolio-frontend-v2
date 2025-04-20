@@ -7,6 +7,7 @@ import styles from "@/features/projects/Projects.module.css";
 
 //Animations
 import { motion, AnimatePresence } from "motion/react";
+import CategoryMenu from "./CategoryMenu";
 
 const Projects = () => {
   return (
@@ -28,6 +29,7 @@ const Projects = () => {
       >
         My work
       </motion.div>
+      <CategoryMenu />
       {/* <motion.div
         className="projects-container__type-selector"
         whileInView={"visible"}
