@@ -44,12 +44,12 @@ publishedAt
 }
   `;
   try {
-    const categories = await client.fetch<Project[]>(query);
-    if (!categories || categories.length === 0) {
+    const projects = await client.fetch<Project[]>(query);
+    if (!projects || projects.length === 0) {
       throw new Error("Failed to fetch projects");
     }
-    return categories;
+    return projects;
   } catch (error) {
-    throw new Error(`Failed to fetch projects: ${error}`);
+    throw new Error(`${error}`);
   }
 }
