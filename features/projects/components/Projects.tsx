@@ -33,8 +33,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       className={styles.projectsContainer}
       id="projects-container"
       variants={projectsContainerVariants}
-      whileInView="visible"
-      initial="hidden"
+      // whileInView="visible"
+      // initial="hidden"
     >
       {/* <div className="shape-blob one"></div>
       <div className="shape-blob two"></div> */}

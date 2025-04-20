@@ -18,6 +18,30 @@ interface ProjectCardProps {
   project: Project;
 }
 
+export const projectCardVariants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  hidden: {
+    opacity: 0.2,
+    scale: 0.5,
+    y: 70,
+  },
+  exit: {
+    opacity: 0.2,
+    y: 70,
+    scale: 0.75,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
 const projectDetailsVariants = {
   hidden: {
     opacity: 0,
@@ -37,13 +61,17 @@ const projectDetailsVariants = {
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState<boolean>(false);
 
   return (
-    <div
+    <motion.div
       className={styles.projectCard}
       onMouseEnter={() => setShowDetails(true)}
       onMouseLeave={() => setShowDetails(false)}
+      variants={projectCardVariants}
+      whileInView="visible"
+      initial="hidden"
+      exit="exit"
     >
       <AnimatePresence>
         {showDetails && (
@@ -70,7 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         fill
         className={styles.image}
       />
-    </div>
+    </motion.div>
   );
 };
 
