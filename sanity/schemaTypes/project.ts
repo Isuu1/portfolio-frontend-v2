@@ -27,15 +27,28 @@ export default defineType({
       type: "image",
     }),
     defineField({
-      name: "category",
-      type: "reference",
-      to: [{ type: "category" }],
-      validation: (rule) => rule.required(),
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "category" }], // This tells Sanity to look for 'category' documents
+        },
+      ],
+      options: {
+        layout: "tags", // Optional: Display categories as tags for easier selection
+      },
     }),
     defineField({
       name: "images",
       type: "array",
       of: [{ type: "image" }],
+    }),
+    defineField({
+      name: "short_description",
+      type: "array",
+      of: [{ type: "block" }],
     }),
     defineField({
       name: "description",
