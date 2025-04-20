@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 //Animations
 import { motion } from "motion/react";
 //Styles
-import styles from "@/features/projects/components/CategoryMenu.module.css";
+import styles from "@/features/projects/components/CategoryMenu.module.scss";
 //Utils
 import { getCategories } from "@/sanity/lib/queries/getCategories";
 //Types
@@ -72,16 +72,11 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
 
   if (isLoading) {
     return (
-      <motion.ul
-        className={styles.categoryMenu}
-        whileInView="visible"
-        initial="hidden"
-        variants={categoryMenuVariants}
-      >
-        <motion.li className={styles.item} variants={categoryMenuItemVariants}>
+      <ul className={styles.categoryMenu}>
+        <li className={`${styles.item} ${styles.loadingPlaceholder}`}>
           placeholder
-        </motion.li>
-      </motion.ul>
+        </li>
+      </ul>
     );
   }
 
