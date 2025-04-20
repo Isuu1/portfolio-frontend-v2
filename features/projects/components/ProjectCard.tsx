@@ -29,13 +29,13 @@ export const projectCardVariants = {
   },
   hidden: {
     opacity: 0.2,
-    scale: 0.5,
+    scale: 0,
     y: 70,
   },
   exit: {
     opacity: 0.2,
     y: 70,
-    scale: 0.75,
+    scale: 0,
     transition: {
       duration: 0.2,
     },
