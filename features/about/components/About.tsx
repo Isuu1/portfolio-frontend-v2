@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 //Styles
 import styles from "@/features/about/components/About.module.scss";
-import Image from "next/image";
+//Components
 import SectionHeadline from "@/shared/components/SectionHeadline";
 //Animations
 import { motion } from "motion/react";
-import StackList from "./StackList";
 
 export const aboutMeVariants = {
   visible: {
@@ -86,7 +86,6 @@ const About = () => {
           </motion.h3>
         </div>
       </motion.div>
-      <StackList />
     </div>
   );
 };

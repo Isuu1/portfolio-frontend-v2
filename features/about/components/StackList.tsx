@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -9,6 +11,8 @@ import { motion } from "motion/react";
 import { getStack } from "@/sanity/lib/queries/getStack";
 //Types
 import { Stack } from "@/shared/types/stack";
+//Components
+import SectionHeadline from "@/shared/components/SectionHeadline";
 
 export const stackContainerVariants = {
   visible: {
@@ -57,32 +61,35 @@ const StackList = () => {
   }, []);
 
   return (
-    <motion.div
-      className={styles.stackContainer}
-      variants={stackContainerVariants}
-      initial="hidden"
-      whileInView="visible"
-    >
-      <h3>My stack</h3>
+    <div className={styles.stackContainer}>
+      <SectionHeadline sectionName="My stack" />
 
-      <div className={styles.icons}>
-        {stackList &&
-          stackList.map((item) => (
-            <motion.div
-              key={item._id}
-              className={styles.iconContainer}
-              variants={stackIconsVariants}
-            >
-              <Image
-                src={item.icon.asset.url}
-                alt="My stack"
-                fill
-                className={styles.stackImage}
-              />
-              <p>{item.title}</p>
-            </motion.div>
-          ))}
-        {/* <motion.div
+      <motion.div
+        className={styles.stackList}
+        variants={stackContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+      >
+        {/* <h3>My stack</h3> */}
+
+        <div className={styles.icons}>
+          {stackList &&
+            stackList.map((item) => (
+              <motion.div
+                key={item._id}
+                className={styles.iconContainer}
+                variants={stackIconsVariants}
+              >
+                <Image
+                  src={item.icon.asset.url}
+                  alt="My stack"
+                  fill
+                  className={styles.stackImage}
+                />
+                <p>{item.title}</p>
+              </motion.div>
+            ))}
+          {/* <motion.div
           className={styles.iconContainer}
           variants={stackIconsVariants}
         >
@@ -118,8 +125,9 @@ const StackList = () => {
           />
           <p>HTML</p>
         </motion.div> */}
-      </div>
-    </motion.div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
