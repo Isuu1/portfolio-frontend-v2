@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import React, { useEffect, useMemo, useState } from "react";
 
 //Styles
@@ -13,6 +12,7 @@ import { getStack } from "@/sanity/lib/queries/getStack";
 import { Stack } from "@/shared/types/stack";
 //Components
 import SectionHeadline from "@/shared/components/SectionHeadline";
+import StackItem from "./StackItem";
 
 export const stackContainerVariants = {
   visible: {
@@ -20,21 +20,6 @@ export const stackContainerVariants = {
       delayChildren: 0.2,
       staggerChildren: 0.1,
     },
-  },
-};
-
-export const stackIconsVariants = {
-  visible: {
-    opacity: 1,
-    transform: "translateY(0px)",
-  },
-  hidden: {
-    opacity: 0,
-    transform: "translateY(20px)",
-  },
-  transition: {
-    type: "spring",
-    stiffness: 100,
   },
 };
 
@@ -53,8 +38,6 @@ const categoryTitles: { [key: string]: string } = {
 const StackList = () => {
   const [stackList, setStackList] = useState<Stack[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  console.log("Stack:", stackList);
 
   useEffect(() => {
     const fetchStack = async () => {
@@ -76,16 +59,16 @@ const StackList = () => {
     fetchStack();
   }, []);
 
-  // Group stack items by category using useMemo
+  //Group stack items by category
   const groupedStack = useMemo(() => {
-    if (!stackList) return {}; // Return empty object if no data
+    if (!stackList) return {};
 
     // Use reduce to group items by category
     const groups = stackList.reduce(
       (acc, item) => {
-        const category = item.category || "uncategorized"; // Fallback for items without category
+        const category = item.category || "uncategorized"; //Fallback for items without category
         if (!acc[category]) {
-          acc[category] = []; // Initialize array if category not seen before
+          acc[category] = []; //Initialize array if category not seen before
         }
         acc[category].push(item);
         return acc;
@@ -119,19 +102,7 @@ const StackList = () => {
             <h3>{categoryTitles[category] || category}</h3>
             <div className={styles.itemsContainer}>
               {items.map((item) => (
-                <motion.div
-                  key={item._id}
-                  className={styles.iconContainer}
-                  variants={stackIconsVariants}
-                >
-                  <Image
-                    src={item.icon.asset.url}
-                    alt="My stack"
-                    fill
-                    className={styles.stackImage}
-                  />
-                  <p>{item.title}</p>
-                </motion.div>
+                <StackItem key={item._id} stackItem={item} />
               ))}
             </div>
           </motion.div>

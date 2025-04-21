@@ -4,7 +4,6 @@ $stackListBackground: radial-gradient(
   rgba(138, 46, 180, 0.6082808123249299) 0%,
   rgba(26, 0, 68, 1) 79%
 );
-$stackItemBackground: #100029;
 
 .stackContainer {
   z-index: 4;
@@ -26,24 +25,6 @@ $stackItemBackground: #100029;
       .itemsContainer {
         display: flex;
         gap: 1rem;
-        .iconContainer {
-          background: $stackItemBackground;
-          padding: 1rem;
-          border-radius: 10px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.5rem;
-          transition: all 0.3s ease-in-out;
-          &:hover {
-            filter: drop-shadow(0 0 0.75rem rgb(152, 117, 235));
-          }
-          .stackImage {
-            position: relative !important;
-            width: 45px !important;
-            aspect-ratio: 1/1;
-          }
-        }
       }
     }
   }
