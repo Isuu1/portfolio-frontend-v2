@@ -10,22 +10,14 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 import Input from "@/shared/components/ui/Input";
+import Textarea from "@/shared/components/ui/Textarea";
 
 const ContactForm = () => {
   return (
     <form className={styles.contactForm}>
       <Input id="name" type="text" label="Name" icon={<FaUser />} />
       <Input id="email" type="email" label="Email" icon={<MdEmail />} />
-      <label htmlFor="message">Message</label>
-      <div className={styles.inputContainer}>
-        <textarea
-          id="message"
-          name="message"
-          className={styles.textArea}
-          rows={4}
-          cols={50}
-        />
-      </div>
+      <Textarea id="message" label="Message" />
       <Button variant="secondary" text="Send" icon={<IoSend />} />
     </form>
   );
