@@ -12,19 +12,22 @@ $stackListBackground: radial-gradient(
   .stackListWrapper {
     margin-top: 3rem;
     .stackList {
-      padding: 1rem;
+      padding: 0.5rem;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
       flex-direction: column;
       align-items: center;
       gap: 1rem;
       margin: 0 auto;
       background: rgb(138, 46, 180);
       background: $stackListBackground;
+      &:first-child {
+        padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+      }
       .itemsContainer {
         display: flex;
-        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
       }
     }
   }
