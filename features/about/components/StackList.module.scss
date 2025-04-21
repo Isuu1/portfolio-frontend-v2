@@ -6,6 +6,10 @@ $stackItemBackground: #100029;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  //width: 100%;
+  margin: 0 auto;
   background: rgb(138, 46, 180);
   background: radial-gradient(
     circle,
@@ -17,10 +21,11 @@ $stackItemBackground: #100029;
     gap: 1rem;
     .iconContainer {
       background: $stackItemBackground;
-      padding: 0.5rem;
+      padding: 1rem;
       border-radius: 10px;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 0.5rem;
       .stackImage {
         position: relative !important;
