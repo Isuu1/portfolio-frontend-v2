@@ -117,7 +117,7 @@ const StackList = () => {
             whileInView="visible"
           >
             <h3>{categoryTitles[category] || category}</h3>
-            <div className={styles.icons}>
+            <div className={styles.itemsContainer}>
               {items.map((item) => (
                 <motion.div
                   key={item._id}

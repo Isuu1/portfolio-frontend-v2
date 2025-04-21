@@ -11,7 +11,7 @@ $stackItemBackground: #100029;
   position: relative;
   background: $stackContainerBackground;
   .stackListWrapper {
-    margin-top: 2rem;
+    margin-top: 3rem;
     .stackList {
       padding: 1rem;
       display: flex;
@@ -19,11 +19,11 @@ $stackItemBackground: #100029;
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      gap: 1rem;
       margin: 0 auto;
       background: rgb(138, 46, 180);
       background: $stackListBackground;
-      .icons {
+      .itemsContainer {
         display: flex;
         gap: 1rem;
         .iconContainer {
@@ -40,7 +40,7 @@ $stackItemBackground: #100029;
           }
           .stackImage {
             position: relative !important;
-            width: 60px !important;
+            width: 45px !important;
             aspect-ratio: 1/1;
           }
         }
