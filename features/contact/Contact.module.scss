@@ -1,5 +1,12 @@
 $background: #0a001b;
 
 .contactContainer {
+  z-index: 4;
+  position: relative;
   background: $background;
+  .innerWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 }
