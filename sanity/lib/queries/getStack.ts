@@ -11,7 +11,8 @@ export async function getStack(): Promise<Stack[]> {
           _id,
           url
         }
-      }
+      },
+      category
     }
   `;
   try {

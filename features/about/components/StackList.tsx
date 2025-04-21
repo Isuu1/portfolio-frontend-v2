@@ -70,7 +70,7 @@ const StackList = () => {
         initial="hidden"
         whileInView="visible"
       >
-        {/* <h3>My stack</h3> */}
+        <h3>Frontend</h3>
 
         <div className={styles.icons}>
           {stackList &&
@@ -89,42 +89,6 @@ const StackList = () => {
                 <p>{item.title}</p>
               </motion.div>
             ))}
-          {/* <motion.div
-          className={styles.iconContainer}
-          variants={stackIconsVariants}
-        >
-          <Image
-            src="/images/stack/javascript-icon.svg"
-            alt="My stack"
-            fill
-            className={styles.stackImage}
-          />
-          <p>Javascript</p>
-        </motion.div>
-        <motion.div
-          className={styles.iconContainer}
-          variants={stackIconsVariants}
-        >
-          <Image
-            src="/images/stack/typescript-icon.svg"
-            alt="My stack"
-            fill
-            className={styles.stackImage}
-          />
-          <p>Typescript</p>
-        </motion.div>
-        <motion.div
-          className={styles.iconContainer}
-          variants={stackIconsVariants}
-        >
-          <Image
-            src="/images/stack/html-icon.svg"
-            alt="My stack"
-            fill
-            className={styles.stackImage}
-          />
-          <p>HTML</p>
-        </motion.div> */}
         </div>
       </motion.div>
     </div>
