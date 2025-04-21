@@ -1,0 +1,32 @@
+$stackItemBackground: #100029;
+
+.stackContainer {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  background: rgb(138, 46, 180);
+  background: radial-gradient(
+    circle,
+    rgba(138, 46, 180, 0.6082808123249299) 0%,
+    rgba(26, 0, 68, 1) 79%
+  );
+  .icons {
+    display: flex;
+    gap: 1rem;
+    .iconContainer {
+      background: $stackItemBackground;
+      padding: 0.5rem;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .stackImage {
+        position: relative !important;
+        width: 60px !important;
+        aspect-ratio: 1/1;
+      }
+    }
+  }
+}

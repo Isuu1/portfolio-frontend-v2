@@ -8,6 +8,7 @@ import Image from "next/image";
 import SectionHeadline from "@/shared/components/SectionHeadline";
 //Animations
 import { motion } from "motion/react";
+import Stack from "./Stack";
 
 export const aboutMeVariants = {
   visible: {
@@ -84,6 +85,7 @@ const About = () => {
             Get in touch and let`s bring your ideas to life!
           </motion.h3>
         </div>
+        <Stack />
       </motion.div>
     </div>
   );
