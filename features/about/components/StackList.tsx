@@ -40,11 +40,13 @@ export const stackIconsVariants = {
 
 const StackList = () => {
   const [stackList, setStackList] = useState<Stack[] | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   console.log("Stack:", stackList);
 
   useEffect(() => {
     const fetchStack = async () => {
+      setIsLoading(true);
       try {
         const response = await getStack();
         if (!response) {
@@ -55,10 +57,21 @@ const StackList = () => {
       } catch (error) {
         console.error("Error fetching stack:", error);
         throw new Error("Failed to fetch stack");
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchStack();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className={styles.stackContainer}>
+        <SectionHeadline sectionName="My stack" />
+        <h3>Loading</h3>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.stackContainer}>
