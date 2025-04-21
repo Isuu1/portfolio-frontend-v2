@@ -4,41 +4,30 @@ $stackListBackground: radial-gradient(
   rgba(138, 46, 180, 0.6082808123249299) 0%,
   rgba(26, 0, 68, 1) 79%
 );
-$stackItemBackground: #100029;
 
 .stackContainer {
+  z-index: 4;
+  position: relative;
   background: $stackContainerBackground;
-  .stackList {
-    padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    margin: 0 auto;
-    background: rgb(138, 46, 180);
-    background: $stackListBackground;
-    .icons {
+  .stackListWrapper {
+    margin-top: 3rem;
+    .stackList {
+      padding: 0.5rem;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 1rem;
-      .iconContainer {
-        background: $stackItemBackground;
-        padding: 1rem;
-        border-radius: 10px;
+      margin: 0 auto;
+      background: rgb(138, 46, 180);
+      background: $stackListBackground;
+      &:first-child {
+        padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+      }
+      .itemsContainer {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 0.5rem;
-        transition: all 0.3s ease-in-out;
-        &:hover {
-          filter: drop-shadow(0 0 0.75rem rgb(152, 117, 235));
-        }
-        .stackImage {
-          position: relative !important;
-          width: 60px !important;
-          aspect-ratio: 1/1;
-        }
       }
     }
   }

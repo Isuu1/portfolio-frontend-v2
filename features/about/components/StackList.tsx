@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 //Styles
 import styles from "@/features/about/components/StackList.module.scss";
@@ -13,6 +12,7 @@ import { getStack } from "@/sanity/lib/queries/getStack";
 import { Stack } from "@/shared/types/stack";
 //Components
 import SectionHeadline from "@/shared/components/SectionHeadline";
+import StackItem from "./StackItem";
 
 export const stackContainerVariants = {
   visible: {
@@ -23,28 +23,25 @@ export const stackContainerVariants = {
   },
 };
 
-export const stackIconsVariants = {
-  visible: {
-    opacity: 1,
-    transform: "translateY(0px)",
-  },
-  hidden: {
-    opacity: 0,
-    transform: "translateY(20px)",
-  },
-  transition: {
-    type: "spring",
-    stiffness: 100,
-  },
+const categoryTitles: { [key: string]: string } = {
+  frontend: "Frontend",
+  backend: "Backend",
+  "headless-cms": "Headless CMS",
+  databases: "Databases",
+  languages: "Languages",
+  styling: "Styling",
+  "tools-utilities": "Tools & Utilities",
+  testing: "Testing",
+  devops: "DevOps",
 };
 
 const StackList = () => {
   const [stackList, setStackList] = useState<Stack[] | null>(null);
-
-  console.log("Stack:", stackList);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchStack = async () => {
+      setIsLoading(true);
       try {
         const response = await getStack();
         if (!response) {
@@ -55,78 +52,62 @@ const StackList = () => {
       } catch (error) {
         console.error("Error fetching stack:", error);
         throw new Error("Failed to fetch stack");
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchStack();
   }, []);
 
+  //Group stack items by category
+  const groupedStack = useMemo(() => {
+    if (!stackList) return {};
+
+    // Use reduce to group items by category
+    const groups = stackList.reduce(
+      (acc, item) => {
+        const category = item.category || "uncategorized"; //Fallback for items without category
+        if (!acc[category]) {
+          acc[category] = []; //Initialize array if category not seen before
+        }
+        acc[category].push(item);
+        return acc;
+      },
+      {} as { [key: string]: Stack[] }
+    );
+    return groups;
+  }, [stackList]);
+
+  if (isLoading) {
+    return (
+      <div className={styles.stackContainer}>
+        <SectionHeadline sectionName="My stack" />
+        <h3>Loading</h3>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.stackContainer}>
       <SectionHeadline sectionName="My stack" />
-
-      <motion.div
-        className={styles.stackList}
-        variants={stackContainerVariants}
-        initial="hidden"
-        whileInView="visible"
-      >
-        {/* <h3>My stack</h3> */}
-
-        <div className={styles.icons}>
-          {stackList &&
-            stackList.map((item) => (
-              <motion.div
-                key={item._id}
-                className={styles.iconContainer}
-                variants={stackIconsVariants}
-              >
-                <Image
-                  src={item.icon.asset.url}
-                  alt="My stack"
-                  fill
-                  className={styles.stackImage}
-                />
-                <p>{item.title}</p>
-              </motion.div>
-            ))}
-          {/* <motion.div
-          className={styles.iconContainer}
-          variants={stackIconsVariants}
-        >
-          <Image
-            src="/images/stack/javascript-icon.svg"
-            alt="My stack"
-            fill
-            className={styles.stackImage}
-          />
-          <p>Javascript</p>
-        </motion.div>
-        <motion.div
-          className={styles.iconContainer}
-          variants={stackIconsVariants}
-        >
-          <Image
-            src="/images/stack/typescript-icon.svg"
-            alt="My stack"
-            fill
-            className={styles.stackImage}
-          />
-          <p>Typescript</p>
-        </motion.div>
-        <motion.div
-          className={styles.iconContainer}
-          variants={stackIconsVariants}
-        >
-          <Image
-            src="/images/stack/html-icon.svg"
-            alt="My stack"
-            fill
-            className={styles.stackImage}
-          />
-          <p>HTML</p>
-        </motion.div> */}
-        </div>
-      </motion.div>
+      <div className={styles.stackListWrapper}>
+        {Object.entries(groupedStack).map(([category, items]) => (
+          <motion.div
+            key={category}
+            className={styles.stackList}
+            variants={stackContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+          >
+            <h3>{categoryTitles[category] || category}</h3>
+            <div className={styles.itemsContainer}>
+              {items.map((item) => (
+                <StackItem key={item._id} stackItem={item} />
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 };

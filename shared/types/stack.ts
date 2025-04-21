@@ -7,4 +7,5 @@ export type Stack = {
       url: string;
     };
   };
+  category: string;
 };
