@@ -13,12 +13,15 @@ $background: #1a0044;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     justify-items: center;
-    .image {
-      position: relative !important;
-      max-width: 600px;
-      aspect-ratio: 1/1;
-      animation: borderRadius 10s ease-in-out infinite;
+    .imageContainer {
+      .image {
+        position: relative !important;
+        max-width: 600px;
+        aspect-ratio: 1/1;
+        animation: borderRadius 10s ease-in-out infinite;
+      }
     }
+
     .aboutMe {
       line-height: 2rem;
       display: flex;

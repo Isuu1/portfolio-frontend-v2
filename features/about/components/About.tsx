@@ -23,7 +23,7 @@ const aboutMeItemsVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.3,
+      duration: 0.2,
     },
   },
   hidden: {
@@ -32,23 +32,40 @@ const aboutMeItemsVariants = {
   },
 };
 
+const imageVariants = {
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    scale: 0,
+  },
+};
+
 const About = () => {
   return (
     <div className={styles.aboutContainer}>
       <SectionHeadline sectionName="About me" />
-      <div className={styles.info}>
-        <Image
-          src="/images/myself.webp"
-          alt="Myself"
-          fill
-          className={styles.image}
-        />
-        <motion.div
-          className={styles.aboutMe}
-          initial="hidden"
-          whileInView="visible"
-          variants={aboutMeVariants}
-        >
+      <motion.div
+        className={styles.info}
+        initial="hidden"
+        whileInView="visible"
+        variants={aboutMeVariants}
+      >
+        <motion.div className={styles.imageContainer} variants={imageVariants}>
+          <Image
+            src="/images/myself.webp"
+            alt="Myself"
+            fill
+            className={styles.image}
+          />
+        </motion.div>
+
+        <div className={styles.aboutMe}>
           <motion.p variants={aboutMeItemsVariants}>
             Hi, I`m Jakub, an aspiring Full-Stack Software Engineer with a deep
             passion for technology and coding.
@@ -66,8 +83,8 @@ const About = () => {
           <motion.h3 variants={aboutMeItemsVariants}>
             Get in touch and let`s bring your ideas to life!
           </motion.h3>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </div>
   );
 };
