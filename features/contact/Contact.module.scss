@@ -20,7 +20,11 @@ $socialIconBackground: linear-gradient(
       flex-direction: column;
       gap: 2rem;
       .emailButton {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         font-weight: 600;
+        font-size: 1.2rem;
         margin-right: auto;
         color: #fff;
         border: none;

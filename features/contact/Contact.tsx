@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 //Styles
 import styles from "@/features/contact/Contact.module.scss";
@@ -8,7 +9,6 @@ import { FaCodepen } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 //Components
-import Button from "@/shared/components/ui/Button";
 import SectionHeadline from "@/shared/components/SectionHeadline";
 import ContactForm from "./ContactForm";
 
@@ -26,11 +26,10 @@ const Contact = () => {
             form.
           </p>
 
-          <Button
-            className={styles.emailButton}
-            text="Send me an email"
-            icon={<MdEmail />}
-          />
+          <Link className={styles.emailButton} href="#">
+            Send me an email
+            <MdEmail />
+          </Link>
 
           <h3>Find me on social media</h3>
           <div className={styles.icons}>
