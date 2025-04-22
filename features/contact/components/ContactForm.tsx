@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useActionState } from "react";
 
 //Styles
 import styles from "@/features/contact/components/ContactForm.module.scss";
@@ -11,14 +13,33 @@ import { MdEmail } from "react-icons/md";
 
 import Input from "@/shared/components/ui/Input";
 import Textarea from "@/shared/components/ui/Textarea";
+import { sendContactForm } from "../lib/actions/sendContactForm";
+import { ContactFormState } from "../types/contactForm";
+
+const initialState: ContactFormState = {
+  success: false,
+  data: { name: "", email: "", message: "" },
+  error: null,
+};
 
 const ContactForm = () => {
+  const [state, formAction, isPending] = useActionState(
+    sendContactForm,
+    initialState
+  );
+
+  console.log("Form state:", state);
+
   return (
-    <form className={styles.contactForm}>
+    <form action={formAction} className={styles.contactForm}>
       <Input id="name" type="text" label="Name" icon={<FaUser />} />
       <Input id="email" type="email" label="Email" icon={<MdEmail />} />
       <Textarea id="message" label="Message" />
-      <Button className={styles.submitButton} text="Send" icon={<IoSend />} />
+      <Button
+        className={styles.submitButton}
+        text={isPending ? "Sending..." : "Send"}
+        icon={<IoSend />}
+      />
     </form>
   );
 };
