@@ -1,0 +1,41 @@
+$inputBackground: #1a0044;
+$inputText: #ffffff;
+$submitButtonBackground: linear-gradient(
+  -45deg,
+  #1a0044bd,
+  #e73c7ea4,
+  #a223d5a2,
+  #fb8600b6
+);
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  //padding: 2rem;
+  .submitButton {
+    margin-top: 1rem;
+    font-weight: 600;
+    border: none;
+    color: #fff;
+    background: $submitButtonBackground;
+    background-size: 400% 400%;
+    animation: gradient 35s ease infinite;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

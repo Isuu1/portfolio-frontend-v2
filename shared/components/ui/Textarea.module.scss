@@ -1,0 +1,26 @@
+$inputBackground: #1a0044;
+$inputText: #ffffff;
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  .label {
+    margin-right: auto;
+  }
+  .input {
+    font-family: inherit;
+    background: $inputBackground;
+    outline: none;
+    border: 0;
+    color: $inputText;
+    padding: 0.8rem;
+    width: 100%;
+    transition: filter 0.2s ease-in-out;
+    resize: none;
+    &:focus {
+      filter: drop-shadow(0 0 0.75rem rgb(62, 15, 173));
+    }
+  }
+}
