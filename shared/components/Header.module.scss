@@ -1,0 +1,24 @@
+.header {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+  background: #1e1e24c4;
+  .navMenu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.1rem;
+    .navItem {
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+      &:hover {
+        color: #fb8500;
+      }
+    }
+  }
+}
