@@ -8,6 +8,7 @@ interface ButtonProps {
   icon?: React.ReactNode;
   variant?: "primary" | "secondary";
   onClick?: () => void;
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -15,9 +16,13 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   variant = "default",
   onClick,
+  className,
 }) => {
   return (
-    <button className={`${styles.button} ${styles[variant]}`} onClick={onClick}>
+    <button
+      className={`${styles.button} ${styles[variant]} ${className}`}
+      onClick={onClick}
+    >
       {text}
       {icon && <span>{icon}</span>}
     </button>

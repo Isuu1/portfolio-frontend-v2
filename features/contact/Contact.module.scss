@@ -1,12 +1,81 @@
-$background: #0a001b;
+$containerBackground: #0a001b;
+$socialIconBackground: linear-gradient(
+  180deg,
+  rgba(251, 249, 152, 0.705) 0%,
+  rgba(251, 133, 0, 1) 100%
+);
 
 .contactContainer {
   z-index: 4;
   position: relative;
-  background: $background;
+  background: $containerBackground;
   .innerWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 4rem;
+    padding: 3.5rem 0;
+    font-size: 1.1rem;
+    .contactDetails {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      .emailButton {
+        font-weight: 600;
+        margin-right: auto;
+        color: #fff;
+        border: none;
+        background: linear-gradient(
+          -45deg,
+          #1a0044bd,
+          #e73c7ea4,
+          #a223d5a2,
+          #fb8600b6
+        );
+        background-size: 400% 400%;
+        animation: gradient 35s ease infinite;
+        &:hover {
+          background: transparent;
+        }
+        padding: 0.8rem 1.5rem;
+      }
+      .email {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .icons {
+        font-size: 1.5rem;
+        display: flex;
+        gap: 1rem;
+        .icon {
+          cursor: pointer;
+          background: $socialIconBackground;
+          color: #0a001b;
+          padding: 0.6rem;
+          border-radius: 50%;
+
+          &:hover svg {
+            scale: 1.4;
+          }
+          & svg {
+            transition: all 0.2s ease-in-out;
+            //Remove extra space around the icon
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
