@@ -25,18 +25,14 @@ const Contact = () => {
             work with me feel free to use my contact details or the contact
             form.
           </p>
-          {/* <h3>Send me an email</h3> */}
+
           <Button
             className={styles.emailButton}
             text="Send me an email"
             icon={<MdEmail />}
           />
-          {/* <div className={styles.email}>
-            <MdEmail />
-            <p>jakub.babelek@gmail.com</p>
-          </div> */}
 
-          <h3>Find my on social media</h3>
+          <h3>Find me on social media</h3>
           <div className={styles.icons}>
             <i className={styles.icon}>
               <FaCodepen />

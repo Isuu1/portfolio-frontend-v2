@@ -33,10 +33,11 @@ $socialIconBackground: linear-gradient(
         );
         background-size: 400% 400%;
         animation: gradient 35s ease infinite;
-        &:hover {
-          background: transparent;
-        }
+        transition: all 0.2s ease-in-out;
         padding: 0.8rem 1.5rem;
+        &:hover {
+          opacity: 0.8;
+        }
       }
       .email {
         display: flex;
