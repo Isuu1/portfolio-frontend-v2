@@ -1,7 +1,7 @@
 import React from "react";
 
 //Styles
-import styles from "@/features/contact/ContactForm.module.scss";
+import styles from "@/features/contact/components/ContactForm.module.scss";
 //Components
 import Button from "@/shared/components/ui/Button";
 //Icons

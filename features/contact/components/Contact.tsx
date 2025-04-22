@@ -1,7 +1,7 @@
 import React from "react";
 
 //Styles
-import styles from "@/features/contact/Contact.module.scss";
+import styles from "@/features/contact/components/Contact.module.scss";
 //Icons
 import { FaCodepen } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
