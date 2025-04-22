@@ -13,6 +13,7 @@ import { urlFor } from "@/sanity/lib/image";
 //Animations
 import { AnimatePresence, motion } from "motion/react";
 import Button from "@/shared/components/ui/Button";
+import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
   project: Project;
@@ -63,6 +64,8 @@ const projectDetailsVariants = {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const [showDetails, setShowDetails] = useState<boolean>(false);
 
+  const router = useRouter();
+
   return (
     <motion.div
       className={styles.projectCard}
@@ -86,7 +89,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <h2 className={styles.name}>{project.name}</h2>
             <PortableText value={project.short_description} />
             <div className={styles.buttons}>
-              <Button variant="secondary" text="View more" />
+              <Button
+                variant="secondary"
+                text="View more"
+                onClick={() => router.push(`/project/${project._id}`)}
+              />
               <Button variant="primary" text="Live site" />
             </div>
           </motion.div>
