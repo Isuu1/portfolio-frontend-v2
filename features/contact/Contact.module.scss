@@ -19,35 +19,6 @@ $socialIconBackground: linear-gradient(
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      .emailButton {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-weight: 600;
-        font-size: 1.2rem;
-        margin-right: auto;
-        color: #fff;
-        border: none;
-        background: linear-gradient(
-          -45deg,
-          #1a0044bd,
-          #e73c7ea4,
-          #a223d5a2,
-          #fb8600b6
-        );
-        background-size: 400% 400%;
-        animation: gradient 35s ease infinite;
-        transition: all 0.2s ease-in-out;
-        padding: 0.8rem 1.5rem;
-        &:hover {
-          opacity: 0.8;
-        }
-      }
-      .email {
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-      }
       .icons {
         font-size: 1.5rem;
         display: flex;

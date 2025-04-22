@@ -18,12 +18,7 @@ const ContactForm = () => {
       <Input id="name" type="text" label="Name" icon={<FaUser />} />
       <Input id="email" type="email" label="Email" icon={<MdEmail />} />
       <Textarea id="message" label="Message" />
-      <Button
-        className={styles.submitButton}
-        variant="secondary"
-        text="Send"
-        icon={<IoSend />}
-      />
+      <Button className={styles.submitButton} text="Send" icon={<IoSend />} />
     </form>
   );
 };
