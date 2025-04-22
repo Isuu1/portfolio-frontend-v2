@@ -1,10 +1,8 @@
 import React from "react";
-import Link from "next/link";
 
 //Styles
 import styles from "@/features/contact/Contact.module.scss";
 //Icons
-import { MdEmail } from "react-icons/md";
 import { FaCodepen } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
@@ -25,13 +23,7 @@ const Contact = () => {
             work with me feel free to use my contact details or the contact
             form.
           </p>
-
-          <Link className={styles.emailButton} href="#">
-            Send me an email
-            <MdEmail />
-          </Link>
-
-          <h3>Find me on social media</h3>
+          <h3>Find Me Online</h3>
           <div className={styles.icons}>
             <i className={styles.icon}>
               <FaCodepen />
