@@ -23,7 +23,7 @@ const Header = () => {
         <ul className={styles.navMenu}>
           <li
             className={styles.navItem}
-            onClick={() => scrollToSection("home")}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             Home
           </li>

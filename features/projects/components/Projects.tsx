@@ -34,7 +34,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   });
 
   return (
-    <div className={styles.projectsContainer} id="projects-container">
+    <div className={styles.projectsContainer} id="projects">
       <div className={`${styles.blobShape} ${styles.blobOne}`}></div>
       <div className={`${styles.blobShape} ${styles.blobTwo}`}></div>
       <SectionHeadline sectionName="My work" />

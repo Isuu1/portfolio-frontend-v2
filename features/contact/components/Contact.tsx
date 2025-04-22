@@ -12,7 +12,7 @@ import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
-    <div className={styles.contactContainer}>
+    <div className={styles.contactContainer} id="contact">
       <SectionHeadline sectionName="Contact me" />
       <div className={styles.innerWrapper}>
         <ContactForm />

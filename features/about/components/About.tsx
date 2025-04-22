@@ -49,7 +49,7 @@ const imageVariants = {
 
 const About = () => {
   return (
-    <div className={styles.aboutContainer}>
+    <div className={styles.aboutContainer} id="about">
       <SectionHeadline sectionName="About me" />
       <motion.div
         className={styles.info}
