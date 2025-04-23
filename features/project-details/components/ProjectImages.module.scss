@@ -1,0 +1,21 @@
+.projectImages {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  .imagesWrapper {
+    flex: 1;
+    .image {
+      position: relative !important;
+    }
+  }
+}
+
+//Hide scrollbar
+/* Hide scrollbar for Chrome, Safari and Opera */
+.projectImages::-webkit-scrollbar {
+  display: none;
+}
+.projectImages {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

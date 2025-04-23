@@ -1,12 +1,13 @@
 import React from "react";
 
 //Styles
-import styles from "@/shared/components/ui/Button.module.css";
+import styles from "@/shared/components/ui/Button.module.scss";
 
 interface ButtonProps {
   text: string;
   icon?: React.ReactNode;
-  variant?: "primary" | "secondary";
+  variant: "primary" | "secondary";
+  filled?: boolean;
   onClick?: () => void;
   className?: string;
 }
@@ -14,13 +15,16 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
   text,
   icon,
-  variant = "default",
+  variant,
+  filled = true,
   onClick,
   className,
 }) => {
+  const fillStyleClass = filled ? styles.filled : styles.outlined;
+
   return (
     <button
-      className={`${styles.button} ${styles[variant]} ${className}`}
+      className={`${styles.button} ${styles[variant]} ${fillStyleClass} ${className}`}
       onClick={onClick}
     >
       {text}
