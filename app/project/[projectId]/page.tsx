@@ -6,13 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { getProject } from "@/sanity/lib/queries/getProject";
 import { Project } from "@/shared/types/project";
-//import { PortableText } from "next-sanity";
-
-// interface ProjectPageProps {
-//   params: {
-//     projectId: string; // The folder name [projectId] determines this key name
-//   };
-// }
+import ProjectDescription from "@/features/project-details/components/ProjectDescription";
 
 const descriptionVariants = {
   hidden: {
@@ -38,16 +32,12 @@ const descriptionVariants = {
 };
 
 export default function Page() {
-  //   const { projectId } = params;
-  //   console.log("Project ID:", projectId);
-
   const params = useParams();
-  const projectId = params.projectId as string; // Cast to string if necessary
-  console.log("Params:", params.projectId);
+  const projectId = params.projectId as string;
 
   const [isVisible, setIsVisible] = useState<boolean>(true);
 
-  const [project, setProject] = useState<Project | null>(null); // Replace 'any' with your actual project type
+  const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const router = useRouter();
 
@@ -104,12 +94,12 @@ export default function Page() {
                 height: "fit-content",
               }}
             >
-              <button onClick={() => setIsVisible(false)}>
-                go back from this page
-              </button>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                {/* <PortableText value={project && project.description} /> */}
-              </div>
+              {project && (
+                <ProjectDescription
+                  project={project}
+                  closeDescription={() => setIsVisible(false)}
+                />
+              )}
             </motion.div>
           </>
         )}
