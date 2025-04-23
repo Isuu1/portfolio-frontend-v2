@@ -4,6 +4,7 @@ import Contact from "@/features/contact/components/Contact";
 import Headline from "@/features/headline/components/Headline";
 import Projects from "@/features/projects/components/Projects";
 import { getProjects } from "@/sanity/lib/queries/getProjects";
+import Footer from "@/shared/components/Footer";
 import Header from "@/shared/components/Header";
 import { Project } from "@/shared/types/project";
 
@@ -18,6 +19,7 @@ export default async function Home() {
       <About />
       <StackList />
       <Contact />
+      <Footer />
     </div>
   );
 }
