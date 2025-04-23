@@ -15,6 +15,7 @@ $socialIconBackground: linear-gradient(
     gap: 4rem;
     padding: 3.5rem 0;
     font-size: 1.1rem;
+    margin: 0 auto;
     .contactDetails {
       display: flex;
       flex-direction: column;
@@ -53,5 +54,17 @@ $socialIconBackground: linear-gradient(
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contactContainer .innerWrapper {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .contactContainer .innerWrapper {
+    width: 85%;
   }
 }
