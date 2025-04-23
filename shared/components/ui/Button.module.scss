@@ -1,0 +1,46 @@
+.button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.7rem;
+  font-size: 1.2rem;
+  border: 0;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.button svg {
+  display: block;
+}
+
+.primary {
+  --btn-background: #811ae5;
+  --btn-text: #fff;
+}
+
+.secondary {
+  --btn-background: #fb8500;
+  --btn-text: #fff;
+}
+
+.filled {
+  background: var(--btn-background);
+  color: var(--btn-text);
+  border: 2px solid transparent;
+  &:hover {
+    background: transparent;
+    border: 2px solid var(--btn-background);
+  }
+}
+
+.outlined {
+  background: transparent;
+  color: var(--btn-background);
+  border: 2px solid var(--btn-background);
+  &:hover {
+    background: var(--btn-background);
+    color: #fff;
+  }
+}
