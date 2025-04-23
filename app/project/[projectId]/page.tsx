@@ -2,11 +2,14 @@
 
 import { useParams, useRouter } from "next/navigation";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { getProject } from "@/sanity/lib/queries/getProject";
 import { Project } from "@/shared/types/project";
 import ProjectDescription from "@/features/project-details/components/ProjectDescription";
+//import Image from "next/image";
+//import { urlFor } from "@/sanity/lib/image";
+import ProjectImages from "@/features/project-details/components/ProjectImages";
 
 // const descriptionVariants = {
 //   hidden: {
@@ -74,33 +77,33 @@ export default function Page() {
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         gap: "20px",
-        minHeight: "100vh",
+        height: "100vh",
       }}
     >
       <AnimatePresence onExitComplete={() => router.back()}>
         {isVisible && (
           <>
-            <div>test</div>
+            {project && <ProjectImages project={project} />}
 
-            <motion.div
-              // variants={descriptionVariants}
-              // initial="hidden"
-              // animate="visible"
-              // exit="exit"
+            {/* <motion.div
+              variants={descriptionVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 height: "fit-content",
               }}
-            >
-              {project && (
-                <ProjectDescription
-                  project={project}
-                  closeDescription={() => setIsVisible(false)}
-                />
-              )}
-            </motion.div>
+            > */}
+            {project && (
+              <ProjectDescription
+                project={project}
+                closeDescription={() => setIsVisible(false)}
+              />
+            )}
+            {/* </motion.div> */}
           </>
         )}
       </AnimatePresence>
