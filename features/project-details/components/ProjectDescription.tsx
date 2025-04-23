@@ -97,14 +97,14 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
           variant="primary"
           text="Live site"
           icon={<TbWorldWww />}
-          // onClick={() => window.open(project.url, "_blank")}
+          onClick={() => window.open(project.projectUrl, "_blank")}
         />
         <Button
           variant="secondary"
           filled={false}
           text="Github repo"
           icon={<FaGithub />}
-          // onClick={() => window.open(project.github, "_blank")}
+          onClick={() => window.open(project.repoUrl, "_blank")}
         />
       </motion.div>
     </motion.div>
