@@ -36,6 +36,7 @@ const ContactForm = () => {
       <Input id="email" type="email" label="Email" icon={<MdEmail />} />
       <Textarea id="message" label="Message" />
       <Button
+        variant="primary"
         className={styles.submitButton}
         text={isPending ? "Sending..." : "Send"}
         icon={<IoSend />}

@@ -24,6 +24,8 @@ $submitButtonBackground: linear-gradient(
     animation: gradient 35s ease infinite;
     &:hover {
       opacity: 0.8;
+      border: 0;
+      background: #fb8500;
     }
   }
 }
