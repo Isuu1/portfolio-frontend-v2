@@ -101,7 +101,6 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
         />
         <Button
           variant="secondary"
-          filled={false}
           text="Github repo"
           icon={<FaGithub />}
           onClick={() => window.open(project.repoUrl, "_blank")}
