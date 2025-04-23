@@ -1,50 +1,27 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-
-import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
-import { getProject } from "@/sanity/lib/queries/getProject";
-import { Project } from "@/shared/types/project";
-import ProjectDescription from "@/features/project-details/components/ProjectDescription";
-//import Image from "next/image";
-//import { urlFor } from "@/sanity/lib/image";
-import ProjectImages from "@/features/project-details/components/ProjectImages";
 
-// const descriptionVariants = {
-//   hidden: {
-//     opacity: 0,
-//     y: 20,
-//   },
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       duration: 1,
-//       ease: "easeInOut",
-//     },
-//   },
-//   exit: {
-//     opacity: 0,
-//     y: -20,
-//     transition: {
-//       duration: 1,
-//       ease: "easeInOut",
-//     },
-//   },
-// };
+//Queries
+import { getProject } from "@/sanity/lib/queries/getProject";
+//Types
+import { Project } from "@/shared/types/project";
+//Components
+import ProjectImages from "@/features/project-details/components/ProjectImages";
+import ProjectDescription from "@/features/project-details/components/ProjectDescription";
+//Animations
+import { AnimatePresence } from "motion/react";
 
 export default function Page() {
-  const params = useParams();
-  const projectId = params.projectId as string;
-
   const [isVisible, setIsVisible] = useState<boolean>(true);
 
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const router = useRouter();
 
-  console.log("Project:", project);
+  const params = useParams();
+  const projectId = params.projectId as string;
+  const router = useRouter();
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -85,25 +62,12 @@ export default function Page() {
           <>
             {project && <ProjectImages project={project} />}
 
-            {/* <motion.div
-              variants={descriptionVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "fit-content",
-              }}
-            > */}
             {project && (
               <ProjectDescription
                 project={project}
                 closeDescription={() => setIsVisible(false)}
               />
             )}
-            {/* </motion.div> */}
           </>
         )}
       </AnimatePresence>
