@@ -10,6 +10,7 @@ import { Project } from "@/shared/types/project";
 //Components
 import ProjectImages from "@/features/project-details/components/ProjectImages";
 import ProjectDescription from "@/features/project-details/components/ProjectDescription";
+import Loading from "@/shared/components/Loading";
 //Animations
 import { AnimatePresence } from "motion/react";
 
@@ -45,7 +46,7 @@ export default function Page() {
   }, [projectId]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
