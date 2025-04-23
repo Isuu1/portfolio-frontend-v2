@@ -8,28 +8,28 @@ import { getProject } from "@/sanity/lib/queries/getProject";
 import { Project } from "@/shared/types/project";
 import ProjectDescription from "@/features/project-details/components/ProjectDescription";
 
-const descriptionVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1,
-      ease: "easeInOut",
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: -20,
-    transition: {
-      duration: 1,
-      ease: "easeInOut",
-    },
-  },
-};
+// const descriptionVariants = {
+//   hidden: {
+//     opacity: 0,
+//     y: 20,
+//   },
+//   visible: {
+//     opacity: 1,
+//     y: 0,
+//     transition: {
+//       duration: 1,
+//       ease: "easeInOut",
+//     },
+//   },
+//   exit: {
+//     opacity: 0,
+//     y: -20,
+//     transition: {
+//       duration: 1,
+//       ease: "easeInOut",
+//     },
+//   },
+// };
 
 export default function Page() {
   const params = useParams();
@@ -83,10 +83,10 @@ export default function Page() {
             <div>test</div>
 
             <motion.div
-              variants={descriptionVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
+              // variants={descriptionVariants}
+              // initial="hidden"
+              // animate="visible"
+              // exit="exit"
               style={{
                 display: "flex",
                 alignItems: "center",

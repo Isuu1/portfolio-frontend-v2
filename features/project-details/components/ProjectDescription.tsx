@@ -10,13 +10,44 @@ import { PortableText } from "next-sanity";
 //Icons
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
+import { TbWorldWww } from "react-icons/tb";
+//Components
 import Button from "@/shared/components/ui/Button";
 
 export const projectDescriptionVariants = {
   visible: {
     transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.2,
+    },
+  },
+  exit: {
+    transition: {
       delayChildren: 0.2,
       staggerChildren: 0.1,
+    },
+  },
+};
+
+const descriptionItemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 70,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut",
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -70,
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut",
     },
   },
 };
@@ -31,26 +62,41 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
   closeDescription,
 }) => {
   return (
-    <motion.div className={styles.projectDescription}>
-      <FaArrowLeft
+    <motion.div
+      className={styles.projectDescription}
+      variants={projectDescriptionVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <motion.i
         className={styles.backButton}
-        onClick={() => closeDescription()}
-      />
-      <h2 className={styles.name}>{project.name}</h2>
-      <div className={styles.technologies}>
+        variants={descriptionItemVariants}
+      >
+        <FaArrowLeft onClick={() => closeDescription()} />
+      </motion.i>
+
+      <motion.h2 className={styles.name} variants={descriptionItemVariants}>
+        {project.name}
+      </motion.h2>
+      <motion.div
+        className={styles.technologies}
+        variants={descriptionItemVariants}
+      >
         {project.technologies.map((tech, index) => (
           <div key={index} className={styles.technology}>
             <em className={styles.technologyName}>#{tech}</em>
           </div>
         ))}
-      </div>
-      <div className={styles.details}>
+      </motion.div>
+      <motion.div className={styles.details} variants={descriptionItemVariants}>
         <PortableText value={project && project.description} />
-      </div>
-      <div className={styles.buttons}>
+      </motion.div>
+      <motion.div className={styles.buttons} variants={descriptionItemVariants}>
         <Button
           variant="primary"
           text="Live site"
+          icon={<TbWorldWww />}
           // onClick={() => window.open(project.url, "_blank")}
         />
         <Button
@@ -60,7 +106,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
           icon={<FaGithub />}
           // onClick={() => window.open(project.github, "_blank")}
         />
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
