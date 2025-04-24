@@ -15,11 +15,27 @@ import Input from "@/shared/components/ui/Input";
 import Textarea from "@/shared/components/ui/Textarea";
 import { sendContactForm } from "../lib/actions/sendContactForm";
 import { ContactFormState } from "../types/contactForm";
+//Animations
+import { motion } from "motion/react";
 
 const initialState: ContactFormState = {
   success: false,
   data: { name: "", email: "", message: "" },
   error: null,
+};
+
+const contactFormVariants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  hidden: {
+    y: 50,
+    opacity: 0,
+  },
 };
 
 const ContactForm = () => {
@@ -28,10 +44,16 @@ const ContactForm = () => {
     initialState
   );
 
-  console.log("Form state:", state);
+  console.log("state", state);
 
   return (
-    <form action={formAction} className={styles.contactForm}>
+    <motion.form
+      action={formAction}
+      className={styles.contactForm}
+      variants={contactFormVariants}
+      initial="hidden"
+      whileInView="visible"
+    >
       <Input id="name" type="text" label="Name" icon={<FaUser />} />
       <Input id="email" type="email" label="Email" icon={<MdEmail />} />
       <Textarea id="message" label="Message" />
@@ -41,7 +63,7 @@ const ContactForm = () => {
         text={isPending ? "Sending..." : "Send"}
         icon={<IoSend />}
       />
-    </form>
+    </motion.form>
   );
 };
 
