@@ -9,6 +9,14 @@ $socialIconBackground: linear-gradient(
   z-index: 4;
   position: relative;
   background: $containerBackground;
+  .bgShape {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    .shapeFill {
+      fill: #1a0044;
+    }
+  }
   .innerWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
