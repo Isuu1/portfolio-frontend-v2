@@ -4,3 +4,11 @@
   gap: 2rem;
   height: 100vh;
 }
+
+@media (max-width: 1050px) {
+  .projectDetailsWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+}
