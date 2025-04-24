@@ -13,6 +13,7 @@ import ProjectDescription from "@/features/project-details/components/ProjectDes
 import Loading from "@/shared/components/Loading";
 //Animations
 import { AnimatePresence } from "motion/react";
+import ProjectDetailsWrapper from "@/features/project-details/components/ProjectDetailsWrapper";
 
 export default function Page() {
   const [isVisible, setIsVisible] = useState<boolean>(true);
@@ -50,14 +51,7 @@ export default function Page() {
   }
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "20px",
-        height: "100vh",
-      }}
-    >
+    <ProjectDetailsWrapper>
       <AnimatePresence onExitComplete={() => router.back()}>
         {isVisible && (
           <>
@@ -72,6 +66,6 @@ export default function Page() {
           </>
         )}
       </AnimatePresence>
-    </div>
+    </ProjectDetailsWrapper>
   );
 }
