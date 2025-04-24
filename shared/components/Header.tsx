@@ -4,6 +4,7 @@ import React from "react";
 
 //Styles
 import styles from "@/shared/components/Header.module.scss";
+import Image from "next/image";
 
 const Header = () => {
   const scrollToSection = (id: string) => {
@@ -18,7 +19,10 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <h2 onClick={() => window.scrollTo(0, 0)}>Jakub Babelek</h2>
+      {/* <h1 className={styles.logo} onClick={() => window.scrollTo(0, 0)}>
+        Jakub Babelek
+      </h1> */}
+      <Image src="/images/logo.png" alt="logo" width={112} height={28} />
       <nav>
         <ul className={styles.navMenu}>
           <li
