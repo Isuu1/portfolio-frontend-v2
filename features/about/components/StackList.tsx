@@ -108,6 +108,14 @@ const StackList = () => {
           </motion.div>
         ))}
       </div>
+      <div className={styles.bgShape}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100">
+          <path
+            d="M1000 0H0v52C62.5 28 125 4 250 4c250 0 250 96 500 96 125 0 187.5-24 250-48V0Z"
+            fill="#0a001b"
+          ></path>
+        </svg>
+      </div>
     </div>
   );
 };

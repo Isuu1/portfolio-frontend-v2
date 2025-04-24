@@ -10,17 +10,6 @@ $socialIconBackground: linear-gradient(
   position: relative;
   background: $containerBackground;
   padding: 1rem;
-  .bgShape {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    .shapeFill {
-      fill: #1a0044;
-    }
-  }
   .innerWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -55,18 +44,6 @@ $socialIconBackground: linear-gradient(
         }
       }
     }
-  }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
   }
 }
 

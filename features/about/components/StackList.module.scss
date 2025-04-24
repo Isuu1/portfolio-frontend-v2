@@ -2,16 +2,29 @@ $stackContainerBackground: #1a0044;
 $stackListBackground: radial-gradient(
   circle,
   rgba(138, 46, 180, 0.6082808123249299) 0%,
-  rgba(26, 0, 68, 1) 79%
+  rgba(26, 0, 68, 0) 79%
 );
 
 .stackContainer {
   z-index: 4;
   position: relative;
   background: $stackContainerBackground;
+  padding: 3rem 0 150px 0;
+  .bgShape {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    & svg {
+      transform: rotate(180deg);
+    }
+  }
   .stackListWrapper {
     margin-top: 3rem;
     margin-bottom: 3rem;
+    background: $stackListBackground;
     .stackList {
       padding: 0.5rem;
       display: flex;
@@ -19,8 +32,6 @@ $stackListBackground: radial-gradient(
       align-items: center;
       gap: 1rem;
       margin: 0 auto;
-      background: rgb(138, 46, 180);
-      background: $stackListBackground;
       &:first-child {
         padding: 1.5rem 0.5rem 0.5rem 0.5rem;
       }
