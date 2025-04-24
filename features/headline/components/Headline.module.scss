@@ -20,6 +20,9 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  & h1 {
+    text-align: center;
+  }
   .buttons {
     display: flex;
     gap: 1rem;
