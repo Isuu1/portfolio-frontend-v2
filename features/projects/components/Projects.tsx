@@ -35,8 +35,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
   return (
     <section className={styles.projectsContainer} id="projects">
-      {/* <div className={`${styles.blobShape} ${styles.blobOne}`}></div>
-      <div className={`${styles.blobShape} ${styles.blobTwo}`}></div> */}
+      <div className={`${styles.blobShape} ${styles.blobOne}`}></div>
+      <div className={`${styles.blobShape} ${styles.blobTwo}`}></div>
       <SectionHeadline sectionName="My work" />
       <CategoryMenu
         activeCategory={activeCategory}
