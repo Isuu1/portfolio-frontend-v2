@@ -87,6 +87,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             exit="hidden"
           >
             <h2 className={styles.name}>{project.name}</h2>
+            <div className={styles.technologies}>
+              {project.technologies.map((tech, index) => (
+                <div key={index}>
+                  <em>#{tech}</em>
+                </div>
+              ))}
+            </div>
+
             <PortableText value={project.short_description} />
             <div className={styles.buttons}>
               <Button

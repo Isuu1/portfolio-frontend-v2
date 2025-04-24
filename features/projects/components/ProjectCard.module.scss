@@ -1,11 +1,13 @@
 .projectCard {
   z-index: 3;
   position: relative;
+  flex: 0 1 430px;
+  min-width: 350px;
   .image {
     position: relative !important;
   }
   .projectDetails {
-    background: #1a0044d8;
+    background: #1a0044e8;
     z-index: 2;
     position: absolute;
     top: 0;
@@ -16,10 +18,19 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
     .name {
       text-decoration: underline #fb8500;
       text-underline-offset: 14px;
       text-decoration-thickness: 5px;
+      font-size: 1.4rem;
+    }
+    .technologies {
+      display: flex;
+      gap: 0.5rem;
+      color: #fb8500;
+      font-weight: 600;
     }
     .buttons {
       display: flex;

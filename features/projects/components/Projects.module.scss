@@ -14,8 +14,9 @@ $blobSize: 30vw;
     margin: 0 auto;
     padding: 1rem;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: 4rem;
   }
@@ -81,17 +82,5 @@ $blobSize: 30vw;
   }
   50% {
     transform: translate(20%, 20%) rotate(-200deg) scale(1.2);
-  }
-}
-
-@media (min-width: 1200px) {
-  .projectsContainer .projectsList {
-    width: 90%;
-  }
-}
-
-@media (min-width: 1500px) {
-  .projectsContainer .projectsList {
-    width: 85%;
   }
 }
