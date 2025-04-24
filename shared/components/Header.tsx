@@ -22,7 +22,7 @@ const Header = () => {
       {/* <h1 className={styles.logo} onClick={() => window.scrollTo(0, 0)}>
         Jakub Babelek
       </h1> */}
-      <Image src="/images/logo.png" alt="logo" width={112} height={28} />
+      <Image src="/images/logo.png" alt="logo" width={84} height={24} />
       <nav>
         <ul className={styles.navMenu}>
           <li
