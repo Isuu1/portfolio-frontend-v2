@@ -52,6 +52,22 @@ $background: #1a0044;
   }
 }
 
+@media (max-width: 950px) {
+  .aboutContainer .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .imageContainer {
+      .image {
+        max-width: 450px;
+      }
+    }
+    .aboutMe {
+      text-align: center;
+    }
+  }
+}
+
 @media (min-width: 1200px) {
   .aboutContainer .info {
     width: 90%;
