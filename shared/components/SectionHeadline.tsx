@@ -3,7 +3,7 @@
 import React from "react";
 
 //Styles
-import styles from "@/shared/components/SectionHeadline.module.css";
+import styles from "@/shared/components/SectionHeadline.module.scss";
 
 //Animations
 import { motion } from "motion/react";
@@ -13,9 +13,6 @@ export const sectionHeadlineVariants = {
     scale: 1,
     transition: {
       duration: 0.2,
-      type: "spring",
-      bounce: 0.3,
-      stiffness: 140,
     },
   },
   hidden: {
