@@ -34,7 +34,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   });
 
   return (
-    <div className={styles.projectsContainer} id="projects">
+    <section className={styles.projectsContainer} id="projects">
       {/* <div className={`${styles.blobShape} ${styles.blobOne}`}></div>
       <div className={`${styles.blobShape} ${styles.blobTwo}`}></div> */}
       <SectionHeadline sectionName="My work" />
@@ -50,7 +50,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           ))}
         </AnimatePresence>
       </div>
-    </div>
+    </section>
   );
 };
 
