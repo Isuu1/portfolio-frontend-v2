@@ -1,19 +1,17 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 //Styles
 import styles from "@/features/headline/components/Headline.module.scss";
-
 //Components
 import TypingAnimation from "./TypingAnimation";
-
+import Button from "@/shared/components/ui/Button";
+import ParticlesBackground from "./ParticlesBackground";
 //Icons
 import { TbArrowBigDownLineFilled } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
-
-import Button from "@/shared/components/ui/Button";
-import Link from "next/link";
 
 const Headline = () => {
   const scrollToSection = (id: string) => {
@@ -28,6 +26,7 @@ const Headline = () => {
 
   return (
     <div className={styles.headlineContainer}>
+      <ParticlesBackground />
       <h1>Hello there, my name is Jakub. I`m a</h1>
       <TypingAnimation />
       <div className={styles.buttons}>
