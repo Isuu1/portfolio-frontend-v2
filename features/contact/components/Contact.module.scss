@@ -9,6 +9,18 @@ $socialIconBackground: linear-gradient(
   z-index: 4;
   position: relative;
   background: $containerBackground;
+  padding: 1rem;
+  .bgShape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    .shapeFill {
+      fill: #1a0044;
+    }
+  }
   .innerWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -55,6 +67,17 @@ $socialIconBackground: linear-gradient(
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  .contactContainer .innerWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    .contactDetails {
+      align-items: center;
+      text-align: center;
+    }
   }
 }
 
