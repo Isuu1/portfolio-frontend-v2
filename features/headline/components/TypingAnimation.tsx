@@ -7,9 +7,9 @@ const TypingAnimation = () => {
   return (
     <TypeAnimation
       sequence={[
-        "front-end developer.",
+        "full-stack engineer.",
         1500,
-        "web designer.",
+        "problem-solver.",
         1500,
         "tech enthusiast.",
         1500,
