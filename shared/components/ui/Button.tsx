@@ -10,6 +10,7 @@ interface ButtonProps {
   filled?: boolean;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,6 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   filled = true,
   onClick,
   className,
+  disabled,
 }) => {
   const fillStyleClass = filled ? styles.filled : styles.outlined;
 
@@ -26,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       className={`${styles.button} ${styles[variant]} ${fillStyleClass} ${className}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
       {icon && <span>{icon}</span>}

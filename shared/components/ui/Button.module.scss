@@ -9,6 +9,10 @@
   border: 2px solid transparent;
   transition: all 0.3s ease;
   font-family: inherit;
+  &:disabled {
+    cursor: not-allowed;
+    background: #7a7a7a;
+  }
 }
 
 .button svg {

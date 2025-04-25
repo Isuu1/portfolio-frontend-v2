@@ -95,6 +95,7 @@ const ContactForm = () => {
         className={styles.submitButton}
         text={isPending ? "Sending..." : "Send"}
         icon={<IoSend />}
+        disabled={isPending}
       />
     </motion.form>
   );
