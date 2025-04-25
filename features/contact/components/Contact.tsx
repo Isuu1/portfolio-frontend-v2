@@ -13,6 +13,7 @@ import SectionHeadline from "@/shared/components/SectionHeadline";
 import ContactForm from "./ContactForm";
 //Animations
 import { motion } from "motion/react";
+import Link from "next/link";
 
 export const contactDetailsVariants = {
   visible: {
@@ -63,13 +64,22 @@ const Contact = () => {
             variants={contactDetailsItemsVariants}
           >
             <i className={styles.icon}>
-              <FaCodepen />
+              <Link href="https://codepen.io/Isuususu" target="_blank">
+                <FaCodepen />
+              </Link>
             </i>
             <i className={styles.icon}>
-              <FaGithub />
+              <Link href="https://github.com/Isuu1" target="_blank">
+                <FaGithub />
+              </Link>
             </i>
             <i className={styles.icon}>
-              <FaLinkedin />
+              <Link
+                href="https://www.linkedin.com/in/jakub-babelek/"
+                target="_blank"
+              >
+                <FaLinkedin />
+              </Link>
             </i>
           </motion.div>
         </motion.div>
