@@ -41,7 +41,7 @@ images[]{
   ...
 },
 publishedAt
-}
+} | order(publishedAt desc)
   `;
   try {
     const projects = await client.fetch<Project[]>(query);
