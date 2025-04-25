@@ -24,6 +24,7 @@ const initialState: ContactFormState = {
   success: false,
   data: { name: "", email: "", message: "" },
   error: null,
+  resetKey: Date.now(),
 };
 
 const contactFormVariants = {
@@ -64,7 +65,7 @@ const ContactForm = () => {
     if (state.error) {
       setError(state.error);
     }
-  }, [state.error]);
+  }, [state.error, state.resetKey]);
 
   return state.success ? (
     <motion.div

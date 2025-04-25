@@ -20,6 +20,7 @@ export async function sendContactForm(
       success: false,
       data,
       error: "Please fill in all fields.",
+      resetKey: Date.now(),
     };
   }
 
@@ -44,6 +45,7 @@ export async function sendContactForm(
       success: false,
       data,
       error: "Server configuration error. Email service not set up.",
+      resetKey: Date.now(),
     };
   }
 
@@ -64,7 +66,7 @@ export async function sendContactForm(
 
   try {
     await transporter.sendMail(mailOptions);
-    return { success: true, data: data, error: null };
+    return { success: true, data: data, error: null, resetKey: Date.now() };
   } catch (error) {
     console.error("Error sending email via SendGrid:", error);
 
@@ -72,6 +74,7 @@ export async function sendContactForm(
       success: false,
       data: data,
       error: `Failed to send message: "Unknown server error."}`,
+      resetKey: Date.now(),
     };
   }
 }
