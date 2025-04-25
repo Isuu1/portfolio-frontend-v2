@@ -13,7 +13,6 @@ $submitButtonBackground: linear-gradient(
   flex-direction: column;
   align-items: center;
   gap: 0.7rem;
-  //padding: 2rem;
   .submitButton {
     margin-top: 1rem;
     font-weight: 600;
@@ -28,6 +27,13 @@ $submitButtonBackground: linear-gradient(
       background: #fb8500;
     }
   }
+}
+
+.successMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
 }
 
 @keyframes gradient {
