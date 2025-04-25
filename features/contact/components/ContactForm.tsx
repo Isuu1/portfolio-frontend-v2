@@ -84,8 +84,20 @@ const ContactForm = () => {
       initial="hidden"
       whileInView="visible"
     >
-      <Input id="name" type="text" label="Name" icon={<FaUser />} />
-      <Input id="email" type="email" label="Email" icon={<MdEmail />} />
+      <Input
+        id="name"
+        type="text"
+        label="Name"
+        icon={<FaUser />}
+        onFocus={() => setError(null)}
+      />
+      <Input
+        id="email"
+        type="email"
+        label="Email"
+        icon={<MdEmail />}
+        onFocus={() => setError(null)}
+      />
       <Textarea id="message" label="Message" />
 
       {error && <Error errorMessage={error} />}

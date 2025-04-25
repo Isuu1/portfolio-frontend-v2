@@ -9,6 +9,7 @@ interface InputProps {
   type: string;
   placeholder?: string;
   icon?: React.ReactNode;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -17,6 +18,7 @@ const Input: React.FC<InputProps> = ({
   type,
   placeholder,
   icon,
+  onFocus,
 }) => {
   return (
     <div className={styles.inputContainer}>
@@ -30,6 +32,7 @@ const Input: React.FC<InputProps> = ({
           type={type}
           placeholder={placeholder}
           className={styles.input}
+          onFocus={onFocus}
         />
         <span className={styles.icon}>{icon}</span>
       </div>
