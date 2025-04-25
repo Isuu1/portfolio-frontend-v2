@@ -33,6 +33,30 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Jakub Babelek", url: "https://github.com/Isuu1" }],
   creator: "Jakub Babelek",
+  icons: {
+    icon: [
+      { url: "/favicon/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: "/favicon/favicon.ico",
+    // Link to the Apple touch icon (iOS home screen)
+    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
+    // Link to other icons if needed (e.g., for Android Chrome manifest)
+    other: [
+      {
+        rel: "icon",
+        url: "/favicon/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        rel: "icon",
+        url: "/favicon/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+  },
   // === Open Graph (for Social Media Previews - Facebook, LinkedIn, etc.) ===
   openGraph: {
     title: "Jakub Babelek | Web Developer Portfolio", // Can be the same as the main title or slightly adapted
