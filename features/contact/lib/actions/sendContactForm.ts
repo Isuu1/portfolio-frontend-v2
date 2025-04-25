@@ -13,18 +13,15 @@ export async function sendContactForm(
     message: formData.get("message") as string,
   };
 
-  console.log("Sending contact form data:", data);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   if (!data.name || !data.email || !data.message) {
-    console.error("Missing required fields in contact form data:", data);
     return {
       success: false,
       data,
-      error: "Please fill in all required fields.",
+      error: "Please fill in all fields.",
     };
   }
-
-  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   // --- Nodemailer Configuration for SendGrid ---
   // Make sure the Gmail config (if present) is commented out or removed
@@ -67,7 +64,6 @@ export async function sendContactForm(
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully via SendGrid to:", recipient);
     return { success: true, data: data, error: null };
   } catch (error) {
     console.error("Error sending email via SendGrid:", error);
