@@ -102,7 +102,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 text="View more"
                 onClick={() => router.push(`/project/${project._id}`)}
               />
-              <Button variant="primary" text="Live site" />
+              <Button
+                variant="primary"
+                text="Live site"
+                onClick={() => window.open(project.projectUrl, "_blank")}
+              />
             </div>
           </motion.div>
         )}
