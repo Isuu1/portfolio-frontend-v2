@@ -22,6 +22,12 @@
   }
   .details {
     line-height: 1.6rem;
+    .image {
+      position: relative !important;
+      width: 259px !important;
+      height: auto !important;
+      aspect-ratio: 1/1;
+    }
     h3 {
       margin: 1rem 0;
     }

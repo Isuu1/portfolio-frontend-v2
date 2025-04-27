@@ -13,6 +13,8 @@ import { FaGithub } from "react-icons/fa";
 import { TbWorldWww } from "react-icons/tb";
 //Components
 import Button from "@/shared/components/ui/Button";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 export const projectDescriptionVariants = {
   visible: {
@@ -90,7 +92,23 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
         ))}
       </motion.div>
       <motion.div className={styles.details} variants={descriptionItemVariants}>
-        <PortableText value={project && project.description} />
+        <PortableText
+          value={project && project.description}
+          components={{
+            types: {
+              image: ({ value }) => {
+                return (
+                  <Image
+                    className={styles.image}
+                    src={urlFor(value).url()}
+                    fill
+                    alt=""
+                  />
+                );
+              },
+            },
+          }}
+        />
       </motion.div>
       <motion.div className={styles.buttons} variants={descriptionItemVariants}>
         <Button
