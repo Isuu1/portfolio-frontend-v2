@@ -3,8 +3,10 @@
   position: relative;
   flex: 0 1 430px;
   min-width: 350px;
+  aspect-ratio: 1/1;
   .image {
     position: relative !important;
+    object-fit: cover;
   }
   .projectDetails {
     background: #1a0044e8;
